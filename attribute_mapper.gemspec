@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = AttributeMapper::VERSION
   spec.authors       = ["Wayne Chu"]
   spec.email         = ["wayne.5540@gmail.com"]
-  spec.summary       = %q{A DSL to help mapping attributes.}
-  spec.description   = %q{A DSL to help mapping attributes.}
+  spec.summary       = %q{A simple mapping DSL for Ruby class}
+  spec.description   = %q{A simple mapping DSL for Ruby class}
   spec.homepage      = "https://github.com/wayne5540/attribute_mapper"
   spec.license       = "MIT"
 
