@@ -22,7 +22,41 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```rb
+require 'attribute_mapper'
+
+class User
+  include AttributeMapper
+  attr_accessor :first_name, :last_name, :stripe_token
+
+  mapping :stripe do
+    has_same_attributes :first_name, :last_name
+    from :stripe_token, to: :id
+  end
+end
+
+user = User.new
+user.first_name = "Wayne"
+user.last_name = "Chu"
+user.stripe_token = "xoxo123"
+
+user.mapping
+# =>
+# {
+#   stripe: {
+#     first_name: :first_name,
+#     last_name: :last_name,
+#     stripe_token: :id
+#   }
+# }
+user.stripe_attributes
+# =>
+# {
+#   "first_name" => "Wayne",
+#   "last_name" => "Chu",
+#   "id" => "xoxo123"
+# }
+```
 
 ## Development
 
@@ -32,7 +66,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/attribute_mapper. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/wayne5540/attribute_mapper. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
