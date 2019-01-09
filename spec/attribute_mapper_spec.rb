@@ -21,7 +21,7 @@ RSpec.describe AttributeMapper do
   end
 
   describe "#mapping" do
-    specify do
+    it "returns hash of mapping's key value" do
       expect(FooModel.new.mapping).to eq({
         test: {
           name: :name,
@@ -32,13 +32,13 @@ RSpec.describe AttributeMapper do
   end
 
   describe "#test_attributes" do
-    specify do
+    it "returns hash of each mapped attribute's key value" do
       model = FooModel.new
 
       expect(model.test_attributes).to eq({
-        name: model.name,
-        suffix: model.title
-      }.as_json)
+        "name" => model.name,
+        "suffix" => model.title
+      })
     end
   end
 end
